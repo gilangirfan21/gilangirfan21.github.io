@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Child Window</title>
+</head>
+<body>
+  <button onclick="sendMessageToParent()">Send Message to Parent (with 5 seconds delay)</button>
+
+  <script>
+    // Function to send a message to the parent window with a delay
+    function sendMessageToParent() {
+      const parentWindow = window.parent;
+
+      // Make sure the parent window exists and is not cross-origin
+      if (parentWindow && parentWindow !== window) {
+        const message = "Hello Parent! I am the child window.";
+        const delayInMilliseconds = 5000; // 5 seconds
+
+        // Send the message to the parent window after the specified delay
+        setTimeout(function() {
+          parentWindow.postMessage(message, "http://example.com");
+        }, delayInMilliseconds);
+      }
+    }
+  </script>
+</body>
+</html>
