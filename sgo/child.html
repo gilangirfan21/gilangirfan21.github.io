@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Child Window</title>
+</head>
+<body>
+  <h1>Child Window</h1>
+
+  <button onclick="sendMessageToParent()">Send Message to Parent</button>
+
+  <script type="text/javascript">
+    // Function to send a message to the parent window
+    function sendMessageToParent() {
+      const parentWindow = window.parent;
+
+      // Make sure the parent window exists and is not cross-origin
+      if (parentWindow && parentWindow !== window) {
+        const message = "Hello Parent! I am the child window.";
+        // Send the message to the parent window
+        parentWindow.postMessage(message, "*");
+      }
+    }
+
+    // Event listener to handle messages received from the parent window
+    function receiveMessage(event) {
+      console.log("Child received message:", event.data);
+    }
+
+    // Attach the event listener for the "message" event
+    window.addEventListener("message", receiveMessage, false);
+  </script>
+</body>
+</html>

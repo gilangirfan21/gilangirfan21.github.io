@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple iFrame Example</title>
+</head>
+<body>
+  <h1>Parent Window</h1>
+  <p>Enter URL to load in the iframe:</p>
+  <input type="text" id="url" placeholder="Enter URL">
+  <button onclick="loadIframe()">Load iFrame</button>
+
+  <iframe id="iFrameId" width="600" height="400" src="" frameborder="0"></iframe>
+
+  <script type="text/javascript">
+    function loadIframe() {
+      var url = document.getElementById("url").value;
+      document.getElementById('iFrameId').setAttribute('src', url);
+    }
+  </script>
+</body>
+</html>
