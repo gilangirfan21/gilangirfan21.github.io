@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parent Window</title>
+</head>
+<body>
+  <h1>Parent Window</h1>
+  <iframe id="childFrame" src="responseCallback.html"></iframe>
+
+  <script type="text/javascript">
+    // Function to receive messages from the child iframe
+    function receiveMessage(event) {
+      console.log("Message received from child:", event.data);
+      console.log("Message ResponseCode:", event.data.responseCode);
+      console.log("Message ResponseCode:", event.data.responseMessage);
+    }
+
+    // Attach the event listener for the "message" event
+    window.addEventListener("message", receiveMessage, false);
+  </script>
+</body>
+</html>
