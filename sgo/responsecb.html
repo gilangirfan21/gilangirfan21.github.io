@@ -6,9 +6,15 @@
 </head>
 
 <body>
+	<button id="myButton">Submit</button>
 	<script type="text/javascript">
+
+	const myButton = document.getElementById('myButton');
+	function buttonClickHandler() {
 		var message = JSON.parse('{"responseCode":"2007400","responseMessage":"Success"}');
-        window.parent.postMessage(message, '*');
+       		window.parent.postMessage(message, '*');
+	}
+		
 	</script>
 </body>
 
